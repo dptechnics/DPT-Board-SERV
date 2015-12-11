@@ -134,7 +134,7 @@ bool rfid_pn532_init_i2c(int sda, int scl, int irq, int reset)
     if(!gpio_write_and_close(reset, GPIO_LOW)) {
         goto bad;
     }
-    usleep(10);
+    usleep(10000);
     
     return true;
 
@@ -205,6 +205,8 @@ bool rfid_pn532_read_data(uint8_t* buf, uint8_t n)
     uint8_t raw[rawlen];        /* raw data buffer */
     int read = 0;               /* number of read bytes */
     int r = 0;                  /* result of read command */
+    
+    usleep(2000);
     
     while(read != rawlen) {
         r = i2c_read(RFID_PN532_I2C_BUSNO, raw + read, rawlen);
