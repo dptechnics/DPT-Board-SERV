@@ -58,6 +58,7 @@ SET(SOURCES
     gpio/gpio_json_api.c
 
     combus/spi.c
+    combus/i2c.c
 
     display/screen_ssd1306.c
 
@@ -81,6 +82,9 @@ SET(SOURCES
     database/db_keyvalue.c
 
     pwm/pwm.c
+
+    rfid/pn532/rfid_pn532.c
+    rfid/pn532/rfid_pn532_json_api.c
 )
 
 CHECK_FUNCTION_EXISTS(getspnam HAVE_SHADOW)

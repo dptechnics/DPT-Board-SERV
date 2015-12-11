@@ -54,6 +54,8 @@
 #include "kunio/kunio_json_api.h"
 #include "bluecherry/bluecherry_json_api.h"
 
+#include "rfid/pn532/rfid_pn532_json_api.h"
+
 /* HTTP response codes */
 const struct http_response r_ok 	= { 200, "OK" };
 const struct http_response r_bad_req 	= { 400, "Bad request" };
@@ -62,7 +64,7 @@ const struct http_response r_error 	= { 500, "Internal server error" };
 /**
  * The get handlers table
  */
-const struct f_entry get_handlers[7] = {
+const struct f_entry get_handlers[8] = {
     { "wifi", 5, wifi_get_router },
     { "firmware", 9, firmware_get_router },
     { "tempsensor", 11, tempsensor_get_router },
@@ -70,6 +72,7 @@ const struct f_entry get_handlers[7] = {
     { "kunio", 6, kunio_get_router },
     { "system", 7, system_get_router },
     { "bluecherry", 11, bluecherry_get_router },
+    { "rfid", 5, rfid_pn532_get_router },
 };
 
 /**
